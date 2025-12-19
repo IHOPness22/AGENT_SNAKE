@@ -20,6 +20,8 @@
   "name":"AGENT_SNAKE",
   "resources":[
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"spr_body","path":"sprites/spr_body/spr_body.yy",},},
+    {"id":{"name":"spr_head","path":"sprites/spr_head/spr_head.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
