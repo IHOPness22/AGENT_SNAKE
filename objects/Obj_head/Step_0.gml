@@ -26,4 +26,14 @@ if (_ver > 0) {
     face = 3;
 }
 
+if (rightKey || leftKey || downKey || upKey) {
+    ready = true;
+}
+
+
+if ready {
 motion_set(face_angle, move_speed);
+}
+
+
+move_wrap(true, true, 32);
