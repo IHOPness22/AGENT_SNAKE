@@ -8,8 +8,10 @@
     "children":[],
     "name":"Default",
   },
-  "defaultScriptType":0,
-  "Folders":[],
+  "defaultScriptType":1,
+  "Folders":[
+    {"$GMFolder":"","%Name":"sprites","folderPath":"folders/sprites.yy","name":"sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
+  ],
   "ForcedPrefabProjectReferences":[],
   "IncludedFiles":[],
   "isEcma":false,
@@ -19,6 +21,7 @@
   },
   "name":"AGENT_SNAKE",
   "resources":[
+    {"id":{"name":"Obj_head","path":"objects/Obj_head/Obj_head.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"spr_body","path":"sprites/spr_body/spr_body.yy",},},
     {"id":{"name":"spr_head","path":"sprites/spr_head/spr_head.yy",},},
