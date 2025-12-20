@@ -36,4 +36,11 @@ motion_set(face_angle, move_speed);
 }
 
 
-move_wrap(true, true, 32);
+move_wrap(true, true, 32); //makes player 
+
+var collider = instance_place(x, y, Obj_apple);
+if (collider != noone) {
+    instance_destroy(collider);
+    score += 1;
+    instance_create_depth(random_range(32, room_width-32), random_range(32, room_height-32), depth, Obj_apple);
+}
