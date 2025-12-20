@@ -3,37 +3,53 @@ leftKey = keyboard_check_pressed(vk_left);
 upKey = keyboard_check_pressed(vk_up);
 downKey = keyboard_check_pressed(vk_down);
 
-var _hor = rightKey - leftKey;
-var _ver = downKey - upKey;
-var face_angle = face * 90;
 
-move_and_collide(_hor * move_speed, _ver * move_speed, tilemap, undefined, undefined, move_speed, move_speed); 
-
-if (_hor > 0) {
+if (rightKey) {
     image_angle = 90;
     face = 0;
+    dir_x = 1;
+    dir_y = 0;
+    
 }
-if (_hor < 0) {
+else if (leftKey) {
     image_angle = 270;
     face = 2;
+    dir_x = -1;
+    dir_y = 0;
 }
-if (_ver < 0) {
+else if (upKey) {
     image_angle = 180;
     face = 1;
+    dir_x = 0;
+    dir_y = -1;
 }
-if (_ver > 0) {
+else if (downKey) {
     image_angle = 0;
     face = 3;
+    dir_x = 0;
+    dir_y = 1;
 }
 
 if (rightKey || leftKey || downKey || upKey) {
     ready = true;
 }
 
-
-if ready {
-motion_set(face_angle, move_speed);
+if (ready) {
+    move_tick++;
+    
+    if (move_tick >= move_delay) {
+        move_tick = 0;
+        
+        x += dir_x * cell;
+        y += dir_y * cell;
+        
+        x = (x + room_width) mod room_width;
+        y = (y + room_height) mod room_height;
+    }
 }
+
+
+
 
 
 move_wrap(true, true, 32); //makes player 
@@ -43,7 +59,7 @@ if (collider != noone) {
     instance_destroy(collider);
     score += 1;
     length += 1;
-    instance_create_depth(random_range(32, room_width-32), random_range(32, room_height-32), depth, Obj_apple);
+    instance_create_depth(random_range(0, (room_width div cell) - 1) * cell, random_range(0, (room_height div cell) - 1) * cell, depth, Obj_apple);
 }
 
 
