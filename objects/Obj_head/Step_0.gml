@@ -42,5 +42,9 @@ var collider = instance_place(x, y, Obj_apple);
 if (collider != noone) {
     instance_destroy(collider);
     score += 1;
+    length += 1;
     instance_create_depth(random_range(32, room_width-32), random_range(32, room_height-32), depth, Obj_apple);
 }
+
+
+//move with the head
