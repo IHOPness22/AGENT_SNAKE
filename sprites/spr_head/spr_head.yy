@@ -23,7 +23,7 @@
   ],
   "name":"spr_head",
   "nineSlice":null,
-  "origin":9,
+  "origin":4,
   "parent":{
     "name":"sprites",
     "path":"folders/sprites.yy",
@@ -75,7 +75,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":17,
+    "xorigin":16,
     "yorigin":16,
   },
   "swatchColours":null,

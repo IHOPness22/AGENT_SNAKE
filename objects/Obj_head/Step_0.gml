@@ -40,27 +40,37 @@ if (ready) {
     if (move_tick >= move_delay) {
         move_tick = 0;
         
-        x += dir_x * cell;
-        y += dir_y * cell;
+        next_x = x + dir_x * cell;
+        next_y = y + dir_y * cell;
         
-        x = (x + room_width) mod room_width;
-        y = (y + room_height) mod room_height;
+        next_x = (next_x + room_width) mod room_width;
+        next_y = (next_y + room_height) mod room_height;
+        
+        var collider = instance_place(next_x, next_y, Obj_apple);
+        if (collider != noone) {
+            instance_destroy(collider);
+            score += 1;
+            grow_remaining += 1;
+            instance_create_depth(random_range(0, (room_width div cell) - 1) * cell, random_range(0, (room_height div cell) - 1) * cell, depth, Obj_apple);
+        }
+        
+        var coord_pair2 = {x: next_x, y: next_y};
+        ds_list_insert(snake, 0, coord_pair2);
+        
+        var last_index = ds_list_size(snake) - 1;
+    
+        if grow_remaining == 0 
+        {
+            ds_list_delete(snake, last_index);
+        }
+        else {
+            grow_remaining--;
+        }
+    
+        
+        x = next_x; 
+        y = next_y; 
     }
 }
-
-
-
-
-
-move_wrap(true, true, 32); //makes player 
-
-var collider = instance_place(x, y, Obj_apple);
-if (collider != noone) {
-    instance_destroy(collider);
-    score += 1;
-    length += 1;
-    instance_create_depth(random_range(0, (room_width div cell) - 1) * cell, random_range(0, (room_height div cell) - 1) * cell, depth, Obj_apple);
-}
-
 
 //move with the head
