@@ -1,0 +1,9 @@
+timer = 180;
+clockticker = 0;
+color[0] = "GREEN";
+color[1] = "RED";
+color[2] = "YELLOW";
+color[3] = "WHITE";
+color[4] = "BLUE";
+random_index = 0;
+new_color = 0;
