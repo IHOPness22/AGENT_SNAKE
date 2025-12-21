@@ -7,3 +7,4 @@ color[3] = "WHITE";
 color[4] = "BLUE";
 random_index = 0;
 new_color = 0;
+stars = 4;
