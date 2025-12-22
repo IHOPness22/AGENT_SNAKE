@@ -18,3 +18,5 @@ ds_list_add(snake, coord_pair1);
 
 dir_x = 1;
 dir_y = 0;
+queued_face = -1;
+

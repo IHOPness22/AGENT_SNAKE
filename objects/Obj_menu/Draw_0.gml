@@ -1,1 +1,0 @@
-draw_sprite_stretched(spr_box, image_index, )
