@@ -1,13 +1,13 @@
 {
   "$GMRoom":"v1",
-  "%Name":"Room1",
+  "%Name":"Agent_Snake",
   "creationCodeFile":"",
   "inheritCode":false,
   "inheritCreationOrder":false,
   "inheritLayers":false,
   "instanceCreationOrder":[
-    {"name":"inst_7A40ECAE","path":"rooms/Room1/Room1.yy",},
-    {"name":"inst_1E66BE7A","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_7A40ECAE","path":"rooms/Agent_Snake/Agent_Snake.yy",},
+    {"name":"inst_1E66BE7A","path":"rooms/Agent_Snake/Agent_Snake.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -18,7 +18,7 @@
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
-  "name":"Room1",
+  "name":"Agent_Snake",
   "parent":{
     "name":"Rooms",
     "path":"folders/Rooms.yy",
