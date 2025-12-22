@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"MENU_THEME",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":124.00433,
+  "exportDir":"",
+  "name":"MENU_THEME",
+  "parent":{
+    "name":"music",
+    "path":"folders/music.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"MENU_THEME.mp3",
+  "volume":0.5,
+}

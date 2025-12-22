@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"ENTER_SOUND",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.35451248,
+  "exportDir":"",
+  "name":"ENTER_SOUND",
+  "parent":{
+    "name":"music",
+    "path":"folders/music.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"ENTER_SOUND.wav",
+  "volume":0.5,
+}

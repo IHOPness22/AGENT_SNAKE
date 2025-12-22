@@ -20,3 +20,4 @@ dir_x = 1;
 dir_y = 0;
 queued_face = -1;
 
+audio_play_sound(AGENT_THEME, false, true);

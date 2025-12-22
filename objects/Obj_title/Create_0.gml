@@ -11,3 +11,6 @@ stars = 4;
 starticker = 0;
 star_timer = 30;
 
+
+audio_play_sound(TITLE_THEME, false, true);
+
