@@ -1,3 +1,5 @@
+if state == STATE.ALIVE {
+
 rightKey = keyboard_check_pressed(vk_right);
 leftKey = keyboard_check_pressed(vk_left);
 upKey = keyboard_check_pressed(vk_up);
@@ -53,6 +55,13 @@ if (ready) {
         next_x = x + dir_x * cell;
         next_y = y + dir_y * cell;
         
+        //check if snake collides with wall
+        if (next_x < 0 || next_x >= room_width || next_y < 0 || next_y >= room_height)
+        {
+            state = STATE.DEAD;
+            //add game over function
+        }
+        
         var collider = instance_place(next_x, next_y, Obj_apple);
         if (collider != noone) {
             instance_destroy(collider);
@@ -79,5 +88,8 @@ if (ready) {
         y = next_y; 
     }
 }
-
+}
 //move with the head
+if state == STATE.DEAD {
+    
+}
