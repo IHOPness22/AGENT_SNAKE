@@ -20,6 +20,9 @@ dir_x = 1;
 dir_y = 0;
 queued_face = -1;
 
+ax = noone;
+ay = noone;
+
 game_over = false;
 
 audio_play_sound(CLASSIC_THEME, false, true);

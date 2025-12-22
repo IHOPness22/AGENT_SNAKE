@@ -61,13 +61,39 @@ if (ready) {
             state = STATE.DEAD;
             //add game over function
         }
+        //check if snake collides with its own body 
+        var hit = false;
+        if (!hit) {
+        for (var i=0; i<ds_list_size(snake); i++) {
+            var _coord = snake[| i];
+            if (_coord.x == next_x && _coord.y == next_y) {
+                state = STATE.DEAD;
+                hit = true;
+            }
+        }
+            
+        }
+        
         
         var collider = instance_place(next_x, next_y, Obj_apple);
         if (collider != noone) {
             instance_destroy(collider);
             score += 1;
             grow_remaining += 1;
-            instance_create_depth(random_range(0, (room_width div cell) - 1) * cell, random_range(0, (room_height div cell) - 1) * cell, depth, Obj_apple);
+            var valid = false;
+            while (!valid) {
+                ax = irandom_range(0, (room_width div cell) - 1) * cell
+                ay = irandom_range(0, (room_height div cell) - 1) * cell
+                valid = true;
+                for (var i=0; i < ds_list_size(snake); i++) {
+                    var _coord = snake[| i];
+                    if _coord.x == ax && _coord.y == ay {
+                        valid = false;
+                        break;
+                }
+                } 
+            }
+            instance_create_depth(ax, ay, depth, Obj_apple);      
         }
         
         var coord_pair2 = {x: next_x, y: next_y};
@@ -91,5 +117,9 @@ if (ready) {
 }
 //move with the head
 if state == STATE.DEAD {
-    
+    image_alpha = 0;
+    if keyboard_check_pressed(vk_anykey) {
+        audio_stop_sound(CLASSIC_THEME);
+        room_goto(input_menu);
+    }
 }
