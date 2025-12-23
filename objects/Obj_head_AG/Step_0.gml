@@ -125,7 +125,7 @@ if state == STATE.DEAD {
 }
 
 //make max amounts egg depending on size 
-var egg_cap = ds_list_size(snake) + 1;
+var egg_cap = ds_list_size(snake);
 var eggs_active = instance_number(Obj_bullet);
 
 
