@@ -1,25 +1,25 @@
 if state == STATE.ALIVE {
+    
+if (random(100) < 85) { movement = "Straight"; }   
+else { 
+    move_input = irandom_range(0, 3); 
+    movement = "Random";
+    }   
 
-rightKey = keyboard_check_pressed(vk_right);
-leftKey = keyboard_check_pressed(vk_left);
-upKey = keyboard_check_pressed(vk_up);
-downKey = keyboard_check_pressed(vk_down);
-
-
-if (rightKey && face != 2) { queued_face = 0; }
-else if (leftKey && face != 0) { queued_face = 2 }
-else if (upKey && face != 3) { queued_face = 1; }
-else if (downKey && face != 1) { queued_face = 3; }
-
-
-if (rightKey || leftKey || downKey || upKey) {
-    ready = true;
+if movement == "Random" {
+if (move_input = 0 && face != 2) { queued_face = 0; }
+else if (move_input = 2 && face != 0) { queued_face = 2 }
+else if (move_input = 1 && face != 3) { queued_face = 1; }
+else if (move_input = 3 && face != 1) { queued_face = 3; }
 }
+    
+if movement == "Straight" {
+    move_input = noone;
+}        
 
 
 //lock the player so thay cant run into themselves
 
-if (ready) {
     move_tick++;
     
     if (move_tick >= move_delay) {
@@ -112,7 +112,7 @@ if (ready) {
         y = next_y; 
     }
 }
-}
+
 //move with the head
 if state == STATE.DEAD {
     image_alpha = 0;

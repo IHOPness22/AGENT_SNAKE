@@ -25,13 +25,8 @@ ay = noone;
 
 game_over = false;
 
-audio_play_sound(AGENT_THEME, false, true);
+audio_play_sound(WARP_THEME, false, true);
 
-enum STATE {
-    ALIVE,
-    DEAD
-}
+
 
 state = STATE.ALIVE;
-
-shoot_cd = 40;

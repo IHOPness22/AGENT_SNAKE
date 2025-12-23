@@ -1,10 +1,10 @@
 if state == STATE.ALIVE {
+    
 
 rightKey = keyboard_check_pressed(vk_right);
 leftKey = keyboard_check_pressed(vk_left);
 upKey = keyboard_check_pressed(vk_up);
 downKey = keyboard_check_pressed(vk_down);
-shootKey = keyboard_check_pressed(vk_space);    
 
 
 if (rightKey && face != 2) { queued_face = 0; }
@@ -15,11 +15,11 @@ else if (downKey && face != 1) { queued_face = 3; }
 
 if (rightKey || leftKey || downKey || upKey) {
     ready = true;
-}
+}  
+
 
 
 //lock the player so thay cant run into themselves
-
 if (ready) {
     move_tick++;
     
@@ -115,11 +115,12 @@ if (ready) {
     }
 }
 }
+
 //move with the head
 if state == STATE.DEAD {
     image_alpha = 0;
     if keyboard_check_pressed(vk_enter) {
-        audio_stop_sound(CLASSIC_THEME);
+        audio_stop_sound(AGENT_THEME);
         room_goto(input_menu);
     }
 }

@@ -116,7 +116,7 @@ if (ready) {
 if state == STATE.DEAD {
     image_alpha = 0;
     if keyboard_check_pressed(vk_anykey) {
-        audio_stop_sound(CLASSIC_THEME);
+        audio_stop_sound(WARP_THEME);
         room_goto(input_menu);
     }
 }
