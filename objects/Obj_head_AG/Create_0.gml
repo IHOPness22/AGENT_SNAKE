@@ -28,6 +28,7 @@ game_over = false;
 audio_play_sound(AGENT_THEME, false, true);
 
 enum STATE {
+    SPAWNING,
     ALIVE,
     DEAD
 }

@@ -5,6 +5,7 @@ rightKey = keyboard_check_pressed(vk_right);
 leftKey = keyboard_check_pressed(vk_left);
 upKey = keyboard_check_pressed(vk_up);
 downKey = keyboard_check_pressed(vk_down);
+shootKey = keyboard_check_pressed(vk_space);    
 
 
 if (rightKey && face != 2) { queued_face = 0; }

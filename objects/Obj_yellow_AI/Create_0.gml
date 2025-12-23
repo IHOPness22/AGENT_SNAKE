@@ -3,7 +3,7 @@ tilemap = layer_tilemap_get_id("Tiles_Col");
 face = noone;
 ready = false;
 length = 0;
-score = 0;
+score = 3;
 cell = 32;
 length = 1;
 move_delay = 8;
@@ -23,13 +23,18 @@ queued_face = -1;
 ax = noone; 
 ay = noone;
 
+sx = 0;
+sy = 0;
+
+
 game_over = false;
 
-audio_play_sound(CLASSIC_THEME, false, true);
+yellow = 1;
 
 
 
-state = STATE.ALIVE
+state = STATE.SPAWNING;
+randomize();
 
 //x = (x + room_width) mod room_width;
 //y = (y + room_height) mod room_height;

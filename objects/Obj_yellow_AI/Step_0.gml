@@ -1,21 +1,62 @@
-if state == STATE.ALIVE {
-    
-if (random(100) < 85) { movement = "Straight"; }   
-else { 
-    move_input = irandom_range(0, 3); 
-    movement = "Random";
-    }   
-
-if movement == "Random" {
-if (move_input = 0 && face != 2) { queued_face = 0; }
-else if (move_input = 2 && face != 0) { queued_face = 2 }
-else if (move_input = 1 && face != 3) { queued_face = 1; }
-else if (move_input = 3 && face != 1) { queued_face = 3; }
+if state == STATE.SPAWNING && yellow == 1 {
+    yellow--;
+    var ai = instance_find(Obj_yellow_AI, 0);
+    ai.state = STATE.ALIVE;
+    var spawn = irandom_range(0, 3);
+    sx = ai.x;
+    sy = ai.y;
+    if spawn == 1 {
+        ai.x = irandom_range(0, 20) * cell;
+        ai.y = 0;
+        ai.image_angle = 0;
+        ai.face = 3;
+        ai.dir_x = 0;
+        ai.dir_y = 1;
+        ai.queued_face = -1;
+    }
+    else if spawn == 0 {
+        ai.x = 672;
+        ai.y = irandom_range(0, 20) * cell;
+        ai.image_angle = 270;
+        ai.face = 2;
+        ai.dir_x = -1;
+        ai.dir_y = 0;
+        ai.queued_face = -1;
+    }
+    else if spawn == 2 {
+        ai.x = 0;
+        ai.y = irandom_range(0, 20) * cell;
+        ai.image_angle = 90; 
+        ai.face = 0;
+        ai.dir_x = 1;
+        ai.dir_y = 0;
+        ai.queued_face = -1;
+    }
+    else if spawn == 3 {
+        ai.x = irandom_range(0, 20) * cell; 
+        ai.y = 672;
+        ai.image_angle = 180;
+        ai.face = 1;
+        ai.dir_x = 0;
+        ai.dir_y = -1;
+        ai.queued_face = -1;
+    }
+    ds_list_clear(ai.snake);
+    for (var i=0; i < irandom_range(4, 6); i++) {
+        var seg_x = ai.x - ai.dir_x * cell * i;
+        var seg_y = ai.y - ai.dir_y * cell * i;
+        var _coord = {x: seg_x, y: seg_y};
+        ds_list_insert(ai.snake,0, _coord);
+    }
+    ai.grow_remaining = 0;
 }
-    
-if movement == "Straight" {
-    move_input = noone;
-}        
+
+
+
+
+
+
+if state == STATE.ALIVE {
 
 
 //lock the player so thay cant run into themselves
@@ -24,6 +65,28 @@ if movement == "Straight" {
     
     if (move_tick >= move_delay) {
         move_tick = 0;
+        
+        
+        
+        if (random(100) < 85) { movement = "Straight"; }   
+        else 
+        { 
+                random_face = irandom_range(0, 3); 
+                movement = "Random";
+        }   
+        
+        if movement == "Straight" {
+            queued_face = -1;
+        }
+        
+        
+        if movement == "Random" {
+        if (random_face == 0 && face != 2) { queued_face = 0; }
+        else if (random_face == 2 && face != 0) { queued_face = 2 }
+        else if (random_face == 1 && face != 3) { queued_face = 1; }
+        else if (random_face == 3 && face != 1) { queued_face = 3; }
+        }
+
         
         if (queued_face != -1) { // apply at most one turn per tile
             if (queued_face == 0) {
@@ -58,19 +121,6 @@ if movement == "Straight" {
         
         next_x = (next_x + room_width) mod room_width;
         next_y = (next_y + room_height) mod room_height;
-        
-        //check if snake collides with its own body 
-        var hit = false;
-        if (!hit) {
-        for (var i=0; i<ds_list_size(snake); i++) {
-            var _coord = snake[| i];
-            if (_coord.x == next_x && _coord.y == next_y) {
-                state = STATE.DEAD;
-                hit = true;
-            }
-        }
-            
-        }
         
         
         var collider = instance_place(next_x, next_y, Obj_apple);
@@ -116,8 +166,5 @@ if movement == "Straight" {
 //move with the head
 if state == STATE.DEAD {
     image_alpha = 0;
-    if keyboard_check_pressed(vk_enter) {
-        audio_stop_sound(CLASSIC_THEME);
-        room_goto(input_menu);
+    instance_destroy();
     }
-}
