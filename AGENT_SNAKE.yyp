@@ -31,6 +31,7 @@
     {"id":{"name":"Obj_body","path":"objects/Obj_body/Obj_body.yy",},},
     {"id":{"name":"Obj_head_AG","path":"objects/Obj_head_AG/Obj_head_AG.yy",},},
     {"id":{"name":"Obj_head_C","path":"objects/Obj_head_C/Obj_head_C.yy",},},
+    {"id":{"name":"Obj_head_W","path":"objects/Obj_head_W/Obj_head_W.yy",},},
     {"id":{"name":"Obj_menu","path":"objects/Obj_menu/Obj_menu.yy",},},
     {"id":{"name":"Obj_stars","path":"objects/Obj_stars/Obj_stars.yy",},},
     {"id":{"name":"Obj_title","path":"objects/Obj_title/Obj_title.yy",},},

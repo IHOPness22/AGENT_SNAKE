@@ -16,6 +16,7 @@ if (rightKey || leftKey || downKey || upKey) {
     ready = true;
 }
 
+
 //lock the player so thay cant run into themselves
 
 if (ready) {
@@ -118,7 +119,7 @@ if (ready) {
 //move with the head
 if state == STATE.DEAD {
     image_alpha = 0;
-    if keyboard_check_pressed(vk_anykey) {
+    if keyboard_check_pressed(vk_enter) {
         audio_stop_sound(CLASSIC_THEME);
         room_goto(input_menu);
     }

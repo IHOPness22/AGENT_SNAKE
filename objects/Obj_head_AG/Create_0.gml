@@ -1,6 +1,6 @@
 move_speed = 4;
 tilemap = layer_tilemap_get_id("Tiles_Col");
-face = 0;
+face = noone;
 ready = false;
 length = 0;
 score = 0;
@@ -20,4 +20,16 @@ dir_x = 1;
 dir_y = 0;
 queued_face = -1;
 
-audio_play_sound(AGENT_THEME, false, true);
+ax = noone; 
+ay = noone;
+
+game_over = false;
+
+audio_play_sound(CLASSIC_THEME, false, true);
+
+enum STATE {
+    ALIVE,
+    DEAD
+}
+
+state = STATE.ALIVE

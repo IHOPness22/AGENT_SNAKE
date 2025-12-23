@@ -16,7 +16,6 @@ if (rightKey || leftKey || downKey || upKey) {
     ready = true;
 }
 
-
 //lock the player so thay cant run into themselves
 
 if (ready) {
@@ -56,12 +55,9 @@ if (ready) {
         next_x = x + dir_x * cell;
         next_y = y + dir_y * cell;
         
-        //check if snake collides with wall
-        if (next_x < 0 || next_x >= room_width || next_y < 0 || next_y >= room_height)
-        {
-            state = STATE.DEAD;
-            //add game over function
-        }
+        next_x = (next_x + room_width) mod room_width;
+        next_y = (next_y + room_height) mod room_height;
+        
         //check if snake collides with its own body 
         var hit = false;
         if (!hit) {
