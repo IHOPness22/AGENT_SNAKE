@@ -27,11 +27,9 @@ game_over = false;
 
 audio_play_sound(CLASSIC_THEME, false, true);
 
-enum STATE {
-    ALIVE,
-    DEAD
-}
 
-state = STATE.ALIVE;
 
-shoot_cd = 40;
+state = STATE.ALIVE
+
+//x = (x + room_width) mod room_width;
+//y = (y + room_height) mod room_height;

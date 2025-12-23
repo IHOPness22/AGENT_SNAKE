@@ -4,7 +4,6 @@ rightKey = keyboard_check_pressed(vk_right);
 leftKey = keyboard_check_pressed(vk_left);
 upKey = keyboard_check_pressed(vk_up);
 downKey = keyboard_check_pressed(vk_down);
-shootKey = keyboard_check_pressed(vk_space);    
 
 
 if (rightKey && face != 2) { queued_face = 0; }
@@ -59,7 +58,6 @@ if (ready) {
         
         next_x = (next_x + room_width) mod room_width;
         next_y = (next_y + room_height) mod room_height;
-        
         
         //check if snake collides with its own body 
         var hit = false;
@@ -122,20 +120,4 @@ if state == STATE.DEAD {
         audio_stop_sound(CLASSIC_THEME);
         room_goto(input_menu);
     }
-}
-
-//make max amounts egg depending on size 
-var egg_cap = ds_list_size(snake) + 1;
-var eggs_active = instance_number(Obj_bullet);
-
-
-//lay egg mechanics
-shoot_cd--;
-if (shoot_cd <= 0 && shootKey && eggs_active < egg_cap) {
-    var last_index = ds_list_size(snake) - 1;
-    var _coord = snake[| last_index];
-    var b = instance_create_depth(_coord.x, _coord.y, depth, Obj_bullet);
-    b.dir_x = dir_x;
-    b.dir_y = dir_y;
-    shoot_cd = 20;
 }
