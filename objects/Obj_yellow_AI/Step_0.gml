@@ -68,7 +68,7 @@ if state == STATE.ALIVE {
         
         
         
-        if (random(100) < 85) { movement = "Straight"; }   
+        /*if (random(100) < 85) { movement = "Straight"; }   
         else 
         { 
                 random_face = irandom_range(0, 3); 
@@ -77,15 +77,15 @@ if state == STATE.ALIVE {
         
         if movement == "Straight" {
             queued_face = -1;
-        }
+        } */
         
         
-        if movement == "Random" {
+        /*if movement == "Random" {
         if (random_face == 0 && face != 2) { queued_face = 0; }
         else if (random_face == 2 && face != 0) { queued_face = 2 }
         else if (random_face == 1 && face != 3) { queued_face = 1; }
         else if (random_face == 3 && face != 1) { queued_face = 3; }
-        }
+        } */
 
         
         if (queued_face != -1) { // apply at most one turn per tile

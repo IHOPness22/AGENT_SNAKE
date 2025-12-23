@@ -66,11 +66,11 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
+    {"roomId":{"name":"Beta_room","path":"rooms/Beta_room/Beta_room.yy",},},
     {"roomId":{"name":"Main_menu","path":"rooms/Main_menu/Main_menu.yy",},},
     {"roomId":{"name":"input_menu","path":"rooms/input_menu/input_menu.yy",},},
     {"roomId":{"name":"Agent_Snake","path":"rooms/Agent_Snake/Agent_Snake.yy",},},
     {"roomId":{"name":"Classic","path":"rooms/Classic/Classic.yy",},},
-    {"roomId":{"name":"Beta_room","path":"rooms/Beta_room/Beta_room.yy",},},
     {"roomId":{"name":"Warp","path":"rooms/Warp/Warp.yy",},},
     {"roomId":{"name":"Tutorial","path":"rooms/Tutorial/Tutorial.yy",},},
   ],
