@@ -48,6 +48,8 @@
     {"id":{"name":"Tutorial","path":"rooms/Tutorial/Tutorial.yy",},},
     {"id":{"name":"Warp","path":"rooms/Warp/Warp.yy",},},
     {"id":{"name":"AGENT_THEME","path":"sounds/AGENT_THEME/AGENT_THEME.yy",},},
+    {"id":{"name":"ANSWER_MUSIC","path":"sounds/ANSWER_MUSIC/ANSWER_MUSIC.yy",},},
+    {"id":{"name":"CALL_SOUND","path":"sounds/CALL_SOUND/CALL_SOUND.yy",},},
     {"id":{"name":"CLASSIC_THEME","path":"sounds/CLASSIC_THEME/CLASSIC_THEME.yy",},},
     {"id":{"name":"ENTER_SOUND","path":"sounds/ENTER_SOUND/ENTER_SOUND.yy",},},
     {"id":{"name":"KEY_SOUND","path":"sounds/KEY_SOUND/KEY_SOUND.yy",},},
@@ -67,8 +69,8 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"Main_menu","path":"rooms/Main_menu/Main_menu.yy",},},
     {"roomId":{"name":"Beta_room","path":"rooms/Beta_room/Beta_room.yy",},},
+    {"roomId":{"name":"Main_menu","path":"rooms/Main_menu/Main_menu.yy",},},
     {"roomId":{"name":"input_menu","path":"rooms/input_menu/input_menu.yy",},},
     {"roomId":{"name":"Agent_Snake","path":"rooms/Agent_Snake/Agent_Snake.yy",},},
     {"roomId":{"name":"Classic","path":"rooms/Classic/Classic.yy",},},

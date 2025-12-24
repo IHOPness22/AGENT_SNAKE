@@ -5,7 +5,8 @@ rightKey = keyboard_check_pressed(vk_right);
 leftKey = keyboard_check_pressed(vk_left);
 upKey = keyboard_check_pressed(vk_up);
 downKey = keyboard_check_pressed(vk_down);
-shootKey = keyboard_check_pressed(vk_space);    
+shootKey = keyboard_check_pressed(vk_space);   
+callKey = keyboard_check_pressed(vk_enter);     
 
 
 if (rightKey && face != 2) { queued_face = 0; }
@@ -81,6 +82,7 @@ if (ready) {
             instance_destroy(collider);
             score += 1;
             grow_remaining += 1;
+            call_score++;
             var valid = false;
             while (!valid) {
                 ax = irandom_range(0, (room_width div cell) - 1) * cell
@@ -141,3 +143,16 @@ if (shoot_cd <= 0 && shootKey && eggs_active < egg_cap) {
     b.dir_y = dir_y;
     shoot_cd = 20;
 }
+
+if call_score >= call_chance && call_mom = false {
+    audio_play_sound(CALL_SOUND, false, false);
+    call_mom = true;
+}
+if callKey && call_score >= call_chance{
+    audio_play_sound(ANSWER_MUSIC, false, false);
+    call_score = 0;
+    call_chance = irandom_range(10, 40);
+    call_mom = false;
+    Obj_yellow_AI.state = STATE.DEAD;
+    alarm[0] = 30;
+} 

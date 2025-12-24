@@ -193,6 +193,18 @@ for (var k = 0; k < 3; k++) {
             instance_create_depth(ax, ay, depth, Obj_apple);      
         }
         
+        var hit_egg = instance_place(x, y, Obj_bullet);
+        if (hit_egg != noone) {
+            instance_destroy(hit_egg);
+
+        if (ds_list_size(snake) > 1) {
+            var last_index = ds_list_size(snake) - 1;
+            ds_list_delete(snake, last_index);
+        }
+        }
+        
+        
+        
         var coord_pair2 = {x: next_x, y: next_y};
         ds_list_insert(snake, 0, coord_pair2);
         
@@ -211,6 +223,9 @@ for (var k = 0; k < 3; k++) {
         y = next_y; 
     }
 }
+
+
+    
 
 //move with the head
 if state == STATE.DEAD {

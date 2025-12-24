@@ -1,0 +1,1 @@
+draw_text_colour(384, 10, "YOU BULLIES, GET OUT OF HERE!!!", c_lime, c_lime, c_lime, c_lime, image_alpha);

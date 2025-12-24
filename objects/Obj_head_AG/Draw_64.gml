@@ -15,3 +15,11 @@ if state == STATE.DEAD {
     
     draw_text(330, 169, score);
 }
+
+if call_score >= call_chance {
+    draw_text_colour(384, 10, "MOM IS CALLING!!!", c_lime, c_lime, c_lime, c_lime, image_alpha);
+}
+
+if mom_here {
+    alarm[1] = 30;
+}

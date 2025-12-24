@@ -36,3 +36,8 @@ enum STATE {
 state = STATE.ALIVE;
 
 shoot_cd = 40;
+
+call_chance = 10;
+call_score = 0;
+call_mom = false;
+mom_here = false;
