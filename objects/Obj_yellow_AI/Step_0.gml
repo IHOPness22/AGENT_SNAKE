@@ -1,4 +1,5 @@
-if state == STATE.SPAWNING && yellow == 1 {
+
+if state == STATE.SPAWNING && yellow == 1 && score == 3 {
     yellow--;
     var ai = instance_find(Obj_yellow_AI, 0);
     ai.state = STATE.ALIVE;
@@ -66,28 +67,77 @@ if state == STATE.ALIVE {
     if (move_tick >= move_delay) {
         move_tick = 0;
         
+        straight_face = face;
+        right_face = (face + 3) mod 4;
+        left_face = (face + 1) mod 4;
         
+        face_dx = [ 1,  0, -1,  0];
+        face_dy = [ 0, -1,  0,  1];
         
-        /*if (random(100) < 85) { movement = "Straight"; }   
-        else 
-        { 
-                random_face = irandom_range(0, 3); 
-                movement = "Random";
-        }   
+        test_face = left_face;
+
+        var apple = instance_find(Obj_apple, 0);
+        var player = Obj_head_AG;
         
-        if movement == "Straight" {
-            queued_face = -1;
-        } */
-        
-        
-        /*if movement == "Random" {
-        if (random_face == 0 && face != 2) { queued_face = 0; }
-        else if (random_face == 2 && face != 0) { queued_face = 2 }
-        else if (random_face == 1 && face != 3) { queued_face = 1; }
-        else if (random_face == 3 && face != 1) { queued_face = 3; }
-        } */
+        if (apple == noone) {
+        queued_face = -1; // or keep going straight
+        exit;
+        }
 
         
+        
+        var panic_tiles = 2;     // too close = basically forbidden
+        var fear_tiles  = 6;     // inside this radius = penalize
+        var fear_weight = 4;     // bigger = more cowardly
+
+        var best_face = straight_face;
+        var best_score = -10000000000; // very low
+
+//loop candiddates manually
+for (var k = 0; k < 3; k++) {
+    var faces = [ straight_face, left_face, right_face ];
+    var tf = faces[k];
+
+    // convert face -> dx,dy
+    var dx = face_dx[tf];
+    var dy = face_dy[tf];
+
+    // predict next tile
+    var nx = x + dx * cell;
+    var ny = y + dy * cell;
+
+    // wrap
+    nx = (nx + room_width) mod room_width;
+    ny = (ny + room_height) mod room_height;
+
+    // distance to apple (want smaller)
+    var dA = abs(nx - apple.x) + abs(ny - apple.y);
+
+    // distance to player head (want larger)
+    var dP = abs(nx - player.x) + abs(ny - player.y);
+
+    // base score: chase apple
+    var move_score = -dA;
+
+    // coward penalty
+    if (dP <= panic_tiles * cell) {
+        move_score -= 1000000; // basically forbidden
+    } else if (dP <= fear_tiles * cell) {
+        // closer to player => bigger penalty
+        move_score -= fear_weight * (fear_tiles * cell - dP);
+    }
+
+    // tiny preference for straight to reduce jitter
+    if (tf == straight_face) move_score += 1;
+
+    // pick best
+    if (move_score > best_score) {
+        best_score = move_score;
+        best_face = tf;
+    }
+}
+        queued_face = (best_face == face) ? -1 : best_face;
+
         if (queued_face != -1) { // apply at most one turn per tile
             if (queued_face == 0) {
                 image_angle = 90;
@@ -126,7 +176,6 @@ if state == STATE.ALIVE {
         var collider = instance_place(next_x, next_y, Obj_apple);
         if (collider != noone) {
             instance_destroy(collider);
-            score += 1;
             grow_remaining += 1;
             var valid = false;
             while (!valid) {
