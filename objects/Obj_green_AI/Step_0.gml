@@ -1,7 +1,7 @@
-if yellow = 0 || score == 3 { 
-if state == STATE.SPAWNING {
-    yellow++;
-    var ai = instance_find(Obj_yellow_AI, 0);
+if green = 0 || score == 10 { 
+if state == STATE.SPAWNING { 
+    green++;
+    var ai = instance_find(Obj_green_AI, 0);
     ai.state = STATE.ALIVE;
     var spawn = irandom_range(0, 3);
     sx = ai.x;
@@ -224,5 +224,5 @@ if state == STATE.DEAD {
     image_alpha = 0;
     score += 5;
     state = STATE.WAITING;
-    alarm[0] = irandom_range(60, 180);
+    alarm[0] = irandom_range(270, 1000);
     }

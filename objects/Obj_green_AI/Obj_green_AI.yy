@@ -1,6 +1,6 @@
 {
   "$GMObject":"",
-  "%Name":"Obj_yellow_AI",
+  "%Name":"Obj_green_AI",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
@@ -8,7 +8,7 @@
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"Obj_yellow_AI",
+  "name":"Obj_green_AI",
   "overriddenProperties":[],
   "parent":{
     "name":"objects",
@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_yellow_AI",
-    "path":"sprites/spr_yellow_AI/spr_yellow_AI.yy",
+    "name":"spr_green_AI",
+    "path":"sprites/spr_green_AI/spr_green_AI.yy",
   },
   "spriteMaskId":null,
   "visible":true,

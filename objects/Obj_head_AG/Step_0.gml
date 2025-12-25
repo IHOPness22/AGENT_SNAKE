@@ -5,7 +5,6 @@ rightKey = keyboard_check_pressed(vk_right);
 leftKey = keyboard_check_pressed(vk_left);
 upKey = keyboard_check_pressed(vk_up);
 downKey = keyboard_check_pressed(vk_down);
-shootKey = keyboard_check_pressed(vk_space);   
 callKey = keyboard_check_pressed(vk_enter);     
 
 
@@ -76,6 +75,12 @@ if (ready) {
             
         }
         
+        //check if player made contact with head 
+        if (!hit && place_meeting(next_x, next_y, Obj_yellow_AI)) {
+            state = STATE.DEAD;
+            hit = true;
+        }
+        
         
         var collider = instance_place(next_x, next_y, Obj_apple);
         if (collider != noone) {
@@ -128,22 +133,6 @@ if state == STATE.DEAD {
     }
 }
 
-//make max amounts egg depending on size 
-var egg_cap = ds_list_size(snake);
-var eggs_active = instance_number(Obj_bullet);
-
-
-//lay egg mechanics
-shoot_cd--;
-if (shoot_cd <= 0 && shootKey && eggs_active < egg_cap) {
-    var last_index = ds_list_size(snake) - 1;
-    var _coord = snake[| last_index];
-    var b = instance_create_depth(_coord.x, _coord.y, depth, Obj_bullet);
-    b.dir_x = dir_x;
-    b.dir_y = dir_y;
-    shoot_cd = 20;
-}
-
 if call_score >= call_chance && call_mom = false {
     audio_play_sound(CALL_SOUND, false, false);
     call_mom = true;
@@ -154,5 +143,7 @@ if callKey && call_score >= call_chance{
     call_chance = irandom_range(10, 40);
     call_mom = false;
     Obj_yellow_AI.state = STATE.DEAD;
+    Obj_green_AI.state = STATE.DEAD;
+    Obj_black_AI.state = STATE.DEAD;
     alarm[0] = 30;
 } 

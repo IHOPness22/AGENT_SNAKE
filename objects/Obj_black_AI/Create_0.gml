@@ -2,7 +2,7 @@ move_speed = 4;
 tilemap = layer_tilemap_get_id("Tiles_Col");
 face = noone;
 ready = false;
-global.length = 0;
+length = 0;
 score = 0;
 cell = 32;
 length = 1;
@@ -23,22 +23,15 @@ queued_face = -1;
 ax = noone; 
 ay = noone;
 
+sx = 0;
+sy = 0;
+
+
 game_over = false;
 
-audio_play_sound(AGENT_THEME, false, true);
+black = 1;
 
-enum STATE {
-    WAITING,
-    SPAWNING,
-    ALIVE,
-    DEAD
-}
 
-state = STATE.ALIVE;
 
-shoot_cd = 40;
-
-call_chance = 10;
-call_score = 0;
-call_mom = false;
-mom_here = false;
+state = STATE.SPAWNING;
+randomize();
