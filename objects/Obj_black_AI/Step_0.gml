@@ -55,9 +55,6 @@ if state == STATE.SPAWNING {
 
 
 
-
-
-
 if state == STATE.ALIVE {
 
 
@@ -96,7 +93,7 @@ if state == STATE.ALIVE {
         var best_face = straight_face;
         var best_score = -10000000000; // very low
 
-//loop candiddates manually
+
 for (var k = 0; k < 3; k++) {
     var faces = [ straight_face, left_face, right_face ];
     var tf = faces[k];
@@ -118,17 +115,18 @@ for (var k = 0; k < 3; k++) {
 
     // distance to player head (want larger)
     var dP = abs(nx - player.x) + abs(ny - player.y);
-
-    // base score: chase apple
-    var move_score = -dA;
-
-    // coward penalty
-    if (dP <= panic_tiles * cell) {
-        move_score -= 1000000; // basically forbidden
-    } else if (dP <= fear_tiles * cell) {
-        // closer to player => bigger penalty
-        move_score -= fear_weight * (fear_tiles * cell - dP);
+    
+    // base score: chase player 
+    var move_score = -dP;
+    
+     if random(100) < 50 {
+        move_score = -dP;
+        
     }
+    else {
+        move_score += irandom_range(20, 40);
+    } 
+
 
     // tiny preference for straight to reduce jitter
     if (tf == straight_face) move_score += 1;

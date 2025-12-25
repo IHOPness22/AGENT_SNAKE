@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":294.00922,
+  "duration":121.15698,
   "exportDir":"",
   "name":"AGENT_THEME",
   "parent":{

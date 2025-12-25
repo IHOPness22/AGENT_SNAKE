@@ -1,5 +1,8 @@
 draw_text(10, 10, score);
 
+draw_text(50, 10, "FPS: " + string(fps));
+
+
 if state == STATE.DEAD {
     var box_w = 260;
     var box_h = 90;

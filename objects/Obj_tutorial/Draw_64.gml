@@ -4,7 +4,7 @@ draw_text_colour(270, 30, "Tutorial", c_lime, c_lime, c_lime, c_lime, image_alph
 
 
 draw_set_font(Font1);
-var instruction = "- press SPACE to lay eggs and to exit this tutorial, \n eggs can damage other snakes with perfect timing"; 
+var instruction = "- press SPACE to exit this tutorial, \n you can go through bodies but not heads"; 
 draw_text_colour(10, 90, instruction, c_lime, c_lime, c_lime, c_lime, image_alpha);
 
 draw_set_font(Font1);

@@ -1,4 +1,4 @@
-move_speed = 4;
+move_speed = 3;
 tilemap = layer_tilemap_get_id("Tiles_Col");
 face = noone;
 ready = false;

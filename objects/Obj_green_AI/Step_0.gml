@@ -113,21 +113,19 @@ for (var k = 0; k < 3; k++) {
     nx = (nx + room_width) mod room_width;
     ny = (ny + room_height) mod room_height;
 
-    // distance to apple (want smaller)
+    // distance to apple (want larger)
     var dA = abs(nx - apple.x) + abs(ny - apple.y);
 
-    // distance to player head (want larger)
+    // distance to player head (want smaller)
     var dP = abs(nx - player.x) + abs(ny - player.y);
 
-    // base score: chase apple
-    var move_score = -dA;
+    //best score: chase player 
+    var move_score = -dP;
 
-    // coward penalty
-    if (dP <= panic_tiles * cell) {
-        move_score -= 1000000; // basically forbidden
-    } else if (dP <= fear_tiles * cell) {
-        // closer to player => bigger penalty
-        move_score -= fear_weight * (fear_tiles * cell - dP);
+    
+    if (dA <= fear_tiles * cell) {
+        // deciding how badly it wants a apple depending on proximity 
+        move_score += fear_weight * (fear_tiles * cell - dA);
     }
 
     // tiny preference for straight to reduce jitter

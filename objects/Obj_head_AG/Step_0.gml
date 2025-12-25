@@ -5,7 +5,7 @@ rightKey = keyboard_check_pressed(vk_right);
 leftKey = keyboard_check_pressed(vk_left);
 upKey = keyboard_check_pressed(vk_up);
 downKey = keyboard_check_pressed(vk_down);
-callKey = keyboard_check_pressed(vk_enter);     
+callKey = keyboard_check_pressed(vk_space);     
 
 
 if (rightKey && face != 2) { queued_face = 0; }
@@ -76,11 +76,20 @@ if (ready) {
         }
         
         //check if player made contact with head 
-        if (!hit && place_meeting(next_x, next_y, Obj_yellow_AI)) {
-            state = STATE.DEAD;
+        if (!hit && instance_position(next_x, next_y, Obj_green_AI)) {
+            state = STATE.DEAD;  
             hit = true;
         }
         
+        if (!hit && instance_position(next_x, next_y, Obj_yellow_AI)) {
+            state = STATE.DEAD;  
+            hit = true;
+        }
+        
+        if (!hit && instance_position(next_x, next_y, Obj_black_AI)) {
+            state = STATE.DEAD;  
+            hit = true;
+        }
         
         var collider = instance_place(next_x, next_y, Obj_apple);
         if (collider != noone) {
@@ -142,8 +151,8 @@ if callKey && call_score >= call_chance{
     call_score = 0;
     call_chance = irandom_range(10, 40);
     call_mom = false;
-    Obj_yellow_AI.state = STATE.DEAD;
-    Obj_green_AI.state = STATE.DEAD;
-    Obj_black_AI.state = STATE.DEAD;
+    with (Obj_yellow_AI) state = STATE.DEAD;
+    with (Obj_green_AI)  state = STATE.DEAD;
+    with (Obj_black_AI)  state = STATE.DEAD;
     alarm[0] = 30;
 } 

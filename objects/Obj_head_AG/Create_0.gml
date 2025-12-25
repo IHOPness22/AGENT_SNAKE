@@ -42,3 +42,4 @@ call_chance = 10;
 call_score = 0;
 call_mom = false;
 mom_here = false;
+
