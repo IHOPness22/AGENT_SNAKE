@@ -13,8 +13,8 @@
   "name":"Obj_head_AG",
   "overriddenProperties":[],
   "parent":{
-    "name":"objects",
-    "path":"folders/objects.yy",
+    "name":"game_modes",
+    "path":"folders/objects/game_modes.yy",
   },
   "parentObjectId":null,
   "persistent":false,

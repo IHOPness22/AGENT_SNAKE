@@ -1,7 +1,7 @@
-if yellow = 1{ 
-if state == STATE.SPAWNING {
-    yellow--;
-    var ai = instance_find(Obj_yellow_menu, 0);
+if black = 0 { 
+if state == STATE.SPAWNING { 
+    black++;
+    var ai = instance_find(Obj_black_menu, 0);
     ai.state = STATE.ALIVE;
     var spawn = irandom_range(0, 3);
     sx = ai.x;
@@ -55,9 +55,6 @@ if state == STATE.SPAWNING {
 
 
 
-
-
-
 if state == STATE.ALIVE {
 
 
@@ -78,7 +75,7 @@ if state == STATE.ALIVE {
         test_face = left_face;
 
         var apple = instance_find(Obj_apple, 0);
-        var player = Obj_black_menu;
+        var player = Obj_yellow_menu;
         
         if (apple == noone) {
         queued_face = -1; // or keep going straight
@@ -96,7 +93,7 @@ if state == STATE.ALIVE {
         var best_face = straight_face;
         var best_score = -10000000000; // very low
 
-//loop candiddates manually
+
 for (var k = 0; k < 3; k++) {
     var faces = [ straight_face, left_face, right_face ];
     var tf = faces[k];
@@ -118,17 +115,18 @@ for (var k = 0; k < 3; k++) {
 
     // distance to player head (want larger)
     var dP = abs(nx - player.x) + abs(ny - player.y);
-
-    // base score: chase apple
-    var move_score = -dA;
-
-    // coward penalty
-    if (dP <= panic_tiles * cell) {
-        move_score -= 1000000; // basically forbidden
-    } else if (dP <= fear_tiles * cell) {
-        // closer to player => bigger penalty
-        move_score -= fear_weight * (fear_tiles * cell - dP);
+    
+    // base score: chase player 
+    var move_score = -dP;
+    
+     if random(100) < 50 {
+        move_score = -dP;
+        
     }
+    else {
+        move_score += irandom_range(20, 40);
+    } 
+
 
     // tiny preference for straight to reduce jitter
     if (tf == straight_face) move_score += 1;
@@ -180,7 +178,6 @@ for (var k = 0; k < 3; k++) {
         if (collider != noone) {
             instance_destroy(collider);
             grow_remaining += 1;
-            score += 1
             var valid = false;
             while (!valid) {
                 ax = irandom_range(0, (room_width div cell) - 1) * cell
@@ -225,5 +222,5 @@ if state == STATE.DEAD {
     image_alpha = 0;
     score += 5;
     state = STATE.WAITING;
-    alarm[0] = irandom_range(60, 180);
+    alarm[0] = irandom_range(360, 720);
     }

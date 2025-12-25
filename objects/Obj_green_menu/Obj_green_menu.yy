@@ -1,16 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"Obj_body",
+  "%Name":"Obj_green_menu",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"Obj_body",
+  "name":"Obj_green_menu",
   "overriddenProperties":[],
   "parent":{
-    "name":"items",
-    "path":"folders/objects/items.yy",
+    "name":"menu_AI",
+    "path":"folders/objects/menu_AI.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -31,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_body",
-    "path":"sprites/spr_body/spr_body.yy",
+    "name":"spr_green_AI",
+    "path":"sprites/spr_green_AI/spr_green_AI.yy",
   },
   "spriteMaskId":null,
   "visible":true,

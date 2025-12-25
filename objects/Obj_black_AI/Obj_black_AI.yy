@@ -11,8 +11,8 @@
   "name":"Obj_black_AI",
   "overriddenProperties":[],
   "parent":{
-    "name":"objects",
-    "path":"folders/objects.yy",
+    "name":"game_AI",
+    "path":"folders/objects/game_AI.yy",
   },
   "parentObjectId":null,
   "persistent":false,

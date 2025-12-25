@@ -1,4 +1,4 @@
-if yellow = 0 || score == 3 { 
+if yellow = 0 || score == 3{ 
 if state == STATE.SPAWNING {
     yellow++;
     var ai = instance_find(Obj_yellow_AI, 0);

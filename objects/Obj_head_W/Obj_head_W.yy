@@ -9,8 +9,8 @@
   "name":"Obj_head_W",
   "overriddenProperties":[],
   "parent":{
-    "name":"objects",
-    "path":"folders/objects.yy",
+    "name":"game_modes",
+    "path":"folders/objects/game_modes.yy",
   },
   "parentObjectId":{
     "name":"Obj_head_C",

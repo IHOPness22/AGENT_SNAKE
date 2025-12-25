@@ -6,8 +6,8 @@
   "name":"Obj_stars",
   "overriddenProperties":[],
   "parent":{
-    "name":"objects",
-    "path":"folders/objects.yy",
+    "name":"items",
+    "path":"folders/objects/items.yy",
   },
   "parentObjectId":null,
   "persistent":false,

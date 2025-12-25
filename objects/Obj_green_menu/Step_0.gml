@@ -1,7 +1,7 @@
-if yellow = 1{ 
-if state == STATE.SPAWNING {
-    yellow--;
-    var ai = instance_find(Obj_yellow_menu, 0);
+if green = 0{ 
+if state == STATE.SPAWNING { 
+    green++;
+    var ai = instance_find(Obj_green_menu, 0);
     ai.state = STATE.ALIVE;
     var spawn = irandom_range(0, 3);
     sx = ai.x;
@@ -78,7 +78,7 @@ if state == STATE.ALIVE {
         test_face = left_face;
 
         var apple = instance_find(Obj_apple, 0);
-        var player = Obj_black_menu;
+        var player = Obj_red_menu;
         
         if (apple == noone) {
         queued_face = -1; // or keep going straight
@@ -113,21 +113,19 @@ for (var k = 0; k < 3; k++) {
     nx = (nx + room_width) mod room_width;
     ny = (ny + room_height) mod room_height;
 
-    // distance to apple (want smaller)
+    // distance to apple (want larger)
     var dA = abs(nx - apple.x) + abs(ny - apple.y);
 
-    // distance to player head (want larger)
+    // distance to player head (want smaller)
     var dP = abs(nx - player.x) + abs(ny - player.y);
 
-    // base score: chase apple
-    var move_score = -dA;
+    //best score: chase player 
+    var move_score = -dP;
 
-    // coward penalty
-    if (dP <= panic_tiles * cell) {
-        move_score -= 1000000; // basically forbidden
-    } else if (dP <= fear_tiles * cell) {
-        // closer to player => bigger penalty
-        move_score -= fear_weight * (fear_tiles * cell - dP);
+    
+    if (dA <= fear_tiles * cell) {
+        // deciding how badly it wants a apple depending on proximity 
+        move_score += fear_weight * (fear_tiles * cell - dA);
     }
 
     // tiny preference for straight to reduce jitter
@@ -180,7 +178,6 @@ for (var k = 0; k < 3; k++) {
         if (collider != noone) {
             instance_destroy(collider);
             grow_remaining += 1;
-            score += 1
             var valid = false;
             while (!valid) {
                 ax = irandom_range(0, (room_width div cell) - 1) * cell
@@ -225,5 +222,5 @@ if state == STATE.DEAD {
     image_alpha = 0;
     score += 5;
     state = STATE.WAITING;
-    alarm[0] = irandom_range(60, 180);
+    alarm[0] = irandom_range(270, 1000);
     }

@@ -1,7 +1,7 @@
-if yellow = 1{ 
+if red = 0{ 
 if state == STATE.SPAWNING {
-    yellow--;
-    var ai = instance_find(Obj_yellow_menu, 0);
+    red++;
+    var ai = instance_find(Obj_red_menu, 0);
     ai.state = STATE.ALIVE;
     var spawn = irandom_range(0, 3);
     sx = ai.x;
@@ -78,7 +78,7 @@ if state == STATE.ALIVE {
         test_face = left_face;
 
         var apple = instance_find(Obj_apple, 0);
-        var player = Obj_black_menu;
+        var player = Obj_green_menu;
         
         if (apple == noone) {
         queued_face = -1; // or keep going straight
@@ -180,7 +180,6 @@ for (var k = 0; k < 3; k++) {
         if (collider != noone) {
             instance_destroy(collider);
             grow_remaining += 1;
-            score += 1
             var valid = false;
             while (!valid) {
                 ax = irandom_range(0, (room_width div cell) - 1) * cell
@@ -218,12 +217,3 @@ for (var k = 0; k < 3; k++) {
 }
 
 
-    
-
-//move with the head
-if state == STATE.DEAD {
-    image_alpha = 0;
-    score += 5;
-    state = STATE.WAITING;
-    alarm[0] = irandom_range(60, 180);
-    }
