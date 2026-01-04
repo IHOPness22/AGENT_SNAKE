@@ -137,17 +137,17 @@ if (ready) {
 if state == STATE.DEAD {
     image_alpha = 0;
     if keyboard_check_pressed(vk_enter) {
-        audio_stop_sound(AGENT_THEME);
+        
         room_goto(input_menu);
     }
 }
 
 if call_score >= call_chance && call_mom = false {
-    audio_play_sound(CALL_SOUND, false, false);
+    
     call_mom = true;
 }
 if callKey && call_score >= call_chance{
-    audio_play_sound(ANSWER_MUSIC, false, false);
+    
     call_score = 0;
     call_chance = irandom_range(10, 40);
     call_mom = false;

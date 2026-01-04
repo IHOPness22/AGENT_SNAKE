@@ -25,7 +25,6 @@ ay = noone;
 
 game_over = false;
 
-audio_play_sound(WARP_THEME, false, true);
 
 
 

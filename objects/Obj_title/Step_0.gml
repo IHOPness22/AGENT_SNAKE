@@ -20,8 +20,7 @@ if starticker >= star_timer {
 }
 
 if key {
-    audio_play_sound(ENTER_SOUND, false, false);
-    audio_stop_sound(TITLE_THEME);
+    
     room_goto(input_menu);
 }
 

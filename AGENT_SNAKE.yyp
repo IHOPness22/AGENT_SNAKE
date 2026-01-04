@@ -11,7 +11,6 @@
   "defaultScriptType":1,
   "Folders":[
     {"$GMFolder":"","%Name":"fonts","folderPath":"folders/fonts.yy","name":"fonts","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"music","folderPath":"folders/music.yy","name":"music","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"objects","folderPath":"folders/objects.yy","name":"objects","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"game_AI","folderPath":"folders/objects/game_AI.yy","name":"game_AI","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"game_modes","folderPath":"folders/objects/game_modes.yy","name":"game_modes","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -26,7 +25,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.1.210",
+    "IDEVersion":"2024.14.2.213",
   },
   "name":"AGENT_SNAKE",
   "resources":[
@@ -55,15 +54,6 @@
     {"id":{"name":"Main_menu","path":"rooms/Main_menu/Main_menu.yy",},},
     {"id":{"name":"Tutorial","path":"rooms/Tutorial/Tutorial.yy",},},
     {"id":{"name":"Warp","path":"rooms/Warp/Warp.yy",},},
-    {"id":{"name":"AGENT_THEME","path":"sounds/AGENT_THEME/AGENT_THEME.yy",},},
-    {"id":{"name":"ANSWER_MUSIC","path":"sounds/ANSWER_MUSIC/ANSWER_MUSIC.yy",},},
-    {"id":{"name":"CALL_SOUND","path":"sounds/CALL_SOUND/CALL_SOUND.yy",},},
-    {"id":{"name":"CLASSIC_THEME","path":"sounds/CLASSIC_THEME/CLASSIC_THEME.yy",},},
-    {"id":{"name":"ENTER_SOUND","path":"sounds/ENTER_SOUND/ENTER_SOUND.yy",},},
-    {"id":{"name":"KEY_SOUND","path":"sounds/KEY_SOUND/KEY_SOUND.yy",},},
-    {"id":{"name":"MENU_THEME","path":"sounds/MENU_THEME/MENU_THEME.yy",},},
-    {"id":{"name":"TITLE_THEME","path":"sounds/TITLE_THEME/TITLE_THEME.yy",},},
-    {"id":{"name":"WARP_THEME","path":"sounds/WARP_THEME/WARP_THEME.yy",},},
     {"id":{"name":"pixelart_starfield","path":"sprites/pixelart_starfield/pixelart_starfield.yy",},},
     {"id":{"name":"spr_apple","path":"sprites/spr_apple/spr_apple.yy",},},
     {"id":{"name":"spr_black_AI","path":"sprites/spr_black_AI/spr_black_AI.yy",},},
